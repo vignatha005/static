@@ -1,0 +1,2 @@
+# static
+static web page
