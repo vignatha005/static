@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DYMANIC WEB PAGE</title>
+    <style>
+        body {
+            background-color: lightblue;
+            font-family: "Times New Roman", Times, serif;
+            margin: 20px;
+        }
+        h1 {
+            font-size: 45px;
+            text-align: center;
+        }
+        p {
+            font-size: 25px;
+        }
+        .form-container {
+            margin-top: 30px;
+            font-size: 20px;
+        }
+        input, select {
+            margin-bottom: 10px;
+            padding: 5px;
+            font-size: 16px;
+            display: block;
+        }
+        #successMessage {
+            color: green;
+            font-weight: bold;
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+    <h1>DYMANIC WEB PAGE</h1>
+    <p>This is a dynamic web page. Enter your details:</p>
+
+    <div class="form-container">
+        <form id="registrationForm">
+            Name:
+            <input type="text" id="name">
+            Phone Number:
+            <input type="tel" id="phone">
+            Age:
+            <input type="number" id="age">
+            Date of Birth:
+            <input type="date" id="dob">
+            Gender:
+            <select id="gender">
+                <option value="">Select Gender</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+            </select><br>
+            <button type="button" onclick="register()">Register</button>
+        </form>
+        <p id="successMessage"></p>
+    </div>
+
+    <script>
+        function register() {
+            const name = document.getElementById("name").value.trim();
+            const phone = document.getElementById("phone").value.trim();
+            const age = document.getElementById("age").value.trim();
+            const dob = document.getElementById("dob").value.trim();
+            const gender = document.getElementById("gender").value.trim();
+            const successMessage = document.getElementById("successMessage");
+
+            // Check if any field is empty
+            if (name === "" || phone === "" || age === "" || dob === "" || gender === "") {
+                successMessage.textContent = ""; // Clear message if previously shown
+                return;
+            }
+
+            // All fields are filled
+            successMessage.textContent = "Registration Successful";
+        }
+    </script>
+</body>
+</html>
